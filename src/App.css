@@ -22,4 +22,6 @@ a {
 }
 .kadhaiItemsBody {
   width: 100%;
+  height: calc(100vh - 145.73px);
+  overflow: scroll;
 }

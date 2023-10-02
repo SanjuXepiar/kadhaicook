@@ -4,7 +4,7 @@ import Videos from "../videos/Videos";
 const Home = () => {
   return (
     <div>
-      <h1>This is the HomePage</h1>
+      HomePage
       <Videos />
     </div>
   );
