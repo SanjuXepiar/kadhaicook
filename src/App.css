@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+.mainBodyPage {
+  display: flex;
+  height: calc(100vh - 82px);
+}
+.kadhaiContents {
+  width: calc(100vw - 228.4px);
+  background: #65d3ce;
+}
+.kadhaiCategories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 63.73px;
+  background: white;
+}
+.kadhaiItemsBody {
+  width: 100%;
+}
