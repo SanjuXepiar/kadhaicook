@@ -1,15 +1,4 @@
-body {
-  margin: 0;
-  box-sizing: border-box;
-}
-a {
-  text-decoration: none;
-}
-.mainBodyPage {
-  display: flex;
-  height: calc(100vh - 82px);
-}
-/* .kadhaiContents {
+.kadhaiContents {
   width: calc(100vw - 228.4px);
   background: #65d3ce;
 }
@@ -24,4 +13,4 @@ a {
   width: 100%;
   height: calc(100vh - 145.73px);
   overflow: scroll;
-} */
+}

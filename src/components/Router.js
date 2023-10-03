@@ -1,15 +1,15 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Playlist from "./Playlist";
-import Watchlater from "./Watchlater";
-import History from "./History";
-import Liked from "./Liked";
-const Router = () => {
+import Home from "../sidebarLinks/Home";
+import Playlist from "../sidebarLinks/Playlist";
+import Watchlater from "../sidebarLinks/Watchlater";
+import History from "../sidebarLinks/History";
+import Liked from "../sidebarLinks/Liked";
+const Router = ({ videos }) => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home videos={videos} />} />
         <Route path="/playlist" element={<Playlist />} />
         <Route path="/watchlater" element={<Watchlater />} />
         <Route path="/history" element={<History />} />
