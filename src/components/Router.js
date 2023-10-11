@@ -1,19 +1,19 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../sidebarLinks/Home";
-import Playlist from "../sidebarLinks/Playlist";
-import Watchlater from "../sidebarLinks/Watchlater";
-import History from "../sidebarLinks/History";
-import Liked from "../sidebarLinks/Liked";
+import RecommendedVideos from "../pages/RecommendedVideos";
+import PlayList from "../pages/PlayList";
+import WatchLater from "../pages/WatchLater";
+import History from "../pages/History";
+import LikedOne from "../pages/LikedOne";
 const Router = ({ videos }) => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home videos={videos} />} />
-        <Route path="/playlist" element={<Playlist />} />
-        <Route path="/watchlater" element={<Watchlater />} />
+        <Route path="/" element={<RecommendedVideos />} />
+        <Route path="/playlist" element={<PlayList />} />
+        <Route path="/watchlater" element={<WatchLater />} />
         <Route path="/history" element={<History />} />
-        <Route path="/liked" element={<Liked />} />
+        <Route path="/likedone" element={<LikedOne />} />
       </Routes>
     </div>
   );

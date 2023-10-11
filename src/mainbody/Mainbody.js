@@ -8,18 +8,29 @@ import { useState, useEffect } from "react";
 const url = "https://cooking-vid-backend.rosan.repl.co/api";
 const Mainbody = () => {
   const [videos, setVideos] = useState([]);
-  const [categories, setCategories] = useState([]);
   const allCategories = [
     "all",
     ...new Set(videos.map((items) => items.category)),
   ];
-  console.log(allCategories);
+  const categories = allCategories;
+
+  const filterCategories = (category) => {
+    if (category === "all") {
+      setVideos(videos);
+    } else {
+      const otherCategory = videos.filter(
+        (items) => items.category === category
+      );
+      setVideos(otherCategory);
+    }
+    return;
+  };
   const fetchData = async () => {
     try {
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        console.log(data.videos);
+        // console.log(data);
         setVideos(data.videos);
       } else {
         console.error(`HTTP error: ${response.status}`);
@@ -37,7 +48,10 @@ const Mainbody = () => {
       <Sidebarlink />
       <div className="kadhaiContents">
         <div className="kadhaiCategories">
-          <Categories videos={videos} />
+          <Categories
+            categories={categories}
+            filterCategories={filterCategories}
+          />
         </div>
         <div className="kadhaiItemsBody">
           <Router videos={videos} />

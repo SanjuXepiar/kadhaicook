@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.headerLogo {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+.logo_Section {
+  display: flex;
+  align-items: center;
+}
+.header .menuIcon {
+  font-size: 1.2rem;
+  color: black;
+  margin: 0 0.5rem;
+  display: flex;
+  cursor: pointer;
+  padding: 0.2rem 0.2rem;
+  transition: 0.3s;
+  border: 4px solid transparent;
+  align-items: center;
+  border-radius: 50%;
+}
+.header .menuIcon:hover {
+  background: rgba(131, 118, 118, 0.504);
+}
+.rotateClock {
+  transform: rotate(90deg);
+  transition: 0.3s linear;
+}
