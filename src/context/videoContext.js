@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
-const VidContext = createContext();
+const VideoContext = createContext();
+
 export const VideoProvider = ({ children }) => {
   const [loader, setLoader] = useState(true);
   const [videos, setVideos] = useState(null);
@@ -10,9 +11,9 @@ export const VideoProvider = ({ children }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${process.env.REACT_APP_API}`);
-        console.log(response.ok);
+        // console.log(response.ok);
         const data = await response.json();
-        setVideos(data);
+        setVideos(data.videos);
       } catch (error) {
         console.log(error.response);
       }
@@ -20,15 +21,14 @@ export const VideoProvider = ({ children }) => {
     };
     fetchData();
   }, []);
-  console.log(videos);
 
   return (
-    <VidContext.Provider value={{ loader, videos, closeLoader }}>
+    <VideoContext.Provider value={{ loader, videos, closeLoader }}>
       {children}
-    </VidContext.Provider>
+    </VideoContext.Provider>
   );
 };
 
 export const useVideoContext = () => {
-  return useContext(VidContext);
+  return useContext(VideoContext);
 };

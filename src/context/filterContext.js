@@ -14,11 +14,26 @@ const defaultState = {
   },
 };
 export const FilterProvider = ({ children }) => {
-  const [filtered_State, dispath] = useReducer(defaultState);
-  const { videos } = useVideoContext;
+  const [filtered_State, dispatch] = useReducer(reducer, defaultState);
+  const { videos } = useVideoContext();
+  //
+  useEffect(() => {
+    dispatch({ type: "LOADING_VIDEOS", payload: videos });
+  }, [videos]);
+
+  //   useEffect(() => {
+  //     dispatch({ type: "FILTER_PRODUCTS" });
+  //   }, [filtered_State.filters]);
+
+  // const updateFilters = (e) => {
+  //   const { name, value } = e.target;
+  //   dispatch({ type: "UPDATE_FILTERS", payload: { name, value } });
+  // };
   return (
     <div>
-      <FilterContext.Provider value={{}}>{children}</FilterContext.Provider>
+      <FilterContext.Provider value={{ ...filtered_State }}>
+        {children}
+      </FilterContext.Provider>
     </div>
   );
 };

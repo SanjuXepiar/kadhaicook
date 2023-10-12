@@ -1,12 +1,33 @@
 import React from "react";
+import VideoCard from "../components/VideoCard";
 import { useVideoContext } from "../context/videoContext";
-const Home = () => {
-  const { loader } = useVideoContext;
+import { useFilterContext } from "../context/filterContext";
+import VideoCardSkeleton from "../components/VideoCardSkeleton";
+
+const RecommendedVideos = () => {
+  const { loader } = useVideoContext();
+  const { filtered_Videos } = useFilterContext();
+  console.log(filtered_Videos);
+  console.log(loader);
   return (
-    <div>
-      <h1>This is Home</h1>
-    </div>
+    <>
+      <div className="recommendedVideos">
+        {loader &&
+          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, index) => (
+            <VideoCardSkeleton key={index} />
+          ))}
+
+        {!loader &&
+          (filtered_Videos?.length ? (
+            filtered_Videos.map((item) => (
+              <VideoCard videoInfo={item} key={item.id} />
+            ))
+          ) : (
+            <h2>Did not match any video...</h2>
+          ))}
+      </div>
+    </>
   );
 };
 
-export default Home;
+export default RecommendedVideos;
