@@ -7,8 +7,8 @@ import VideoCardSkeleton from "../components/VideoCardSkeleton";
 const RecommendedVideos = () => {
   const { loader } = useVideoContext();
   const { filtered_Videos } = useFilterContext();
-  console.log(filtered_Videos);
-  console.log(loader);
+  // console.log(filtered_Videos);
+  // console.log(loader);
   return (
     <>
       <div className="recommendedVideos">
@@ -16,7 +16,6 @@ const RecommendedVideos = () => {
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, index) => (
             <VideoCardSkeleton key={index} />
           ))}
-
         {!loader &&
           (filtered_Videos?.length ? (
             filtered_Videos.map((item) => (
